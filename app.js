@@ -30,6 +30,12 @@ function divideFunction(num1, num2) {
     console.log(result)
 }
 
+let displayNumInput = 777;
+
+let displayScreen = document.getElementById("display-screen");
+displayScreen.querySelector("div").innerHTML = displayNumInput;
+
+
 
 
 

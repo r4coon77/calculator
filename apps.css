@@ -23,7 +23,7 @@ h1 {
     justify-content: center;
 }
 
-.screen-area #display {
+.screen-area #display-screen {
     border: solid;
     border-radius: 5%;
     width: 68%;
@@ -34,7 +34,7 @@ h1 {
     margin-bottom: 0.3em;
 }
 
-#display div {
+#display-screen div {
     float: right;
 }
 
