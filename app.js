@@ -88,6 +88,10 @@ for(o of operatorSelect) {
         operator = opt.target.innerText
         console.log(operator)
         displayScreen.querySelector("div").innerText = firstNum + " " + operator;
+    } else if (secondNum !== "") {
+        caculation();
+        operator = opt.target.innerText
+        displayScreen.querySelector("div").innerText = firstNum + " " + operator;
     }
 })
 };
@@ -95,7 +99,14 @@ for(o of operatorSelect) {
 let equalSelect = document.querySelector(".eq-btn")
 equalSelect.addEventListener('click', function(e) {
     e.stopPropagation()
-    console.log("Equals is pressed")
+    if(secondNum !== "") {
+    console.log("Equals is pressed & it did a calculation")
+    caculation();
+    } else
+    console.log("Equals is pressed & it did nothing")
+})
+
+function caculation() {
     switch (secondNum !== "") {
         case operator === "+":
             addFunction(firstNum, secondNum)
@@ -112,7 +123,7 @@ equalSelect.addEventListener('click', function(e) {
         default:
             clearCalc()
     }
-})
+}
 
 
 let clearCalculator = document.querySelector("#clear")
