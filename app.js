@@ -60,13 +60,16 @@ let result = "";
 for(i of numPadButtons) {
     i.addEventListener('click', function(digit) {
     digit.stopPropagation() 
-    if(operator === "" && secondNum === "") { 
-    firstNum = "";
-    result = "";
+    if(result !== "" && operator === "") {
+        firstNum = "";
+        firstNum = firstNum + digit.target.innerText
+        console.log(digit.target.innerText)
+        displayScreen.querySelector("div").innerText = firstNum; 
+        result = "";
+    } else if(operator === "" && secondNum === "" && result === "") { 
     firstNum = firstNum + digit.target.innerText
     console.log(digit.target.innerText)
     displayScreen.querySelector("div").innerText = firstNum; 
-    result = ""; 
     } else {
             secondNum = secondNum + digit.target.innerText
             result = "";
