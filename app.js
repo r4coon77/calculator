@@ -120,3 +120,19 @@ clearCalculator.addEventListener('click', function(e) {
     e.stopPropagation()
     clearCalc()
 })
+
+let deleteDigit = document.querySelector("#delete")
+deleteDigit.addEventListener('click', function(e) {
+    console.log("delete is pressed")
+    e.stopPropagation()
+    if(operator === "" && secondNum === "" && result === "") { 
+    firstNum = firstNum.slice(0, -1)
+        if(firstNum === "") {
+            displayScreen.querySelector("div").innerText = 0; 
+        } else
+        displayScreen.querySelector("div").innerText = firstNum; 
+    } else {
+            secondNum = secondNum.slice(0, -1)
+            displayScreen.querySelector("div").innerText = firstNum + " " + operator + " " + secondNum; 
+        }
+})
