@@ -11,28 +11,28 @@ function firstNumResult() {
 }
 
 function addFunction(num1, num2) {
-    result = parseInt(num1) + parseInt(num2);
+    result = Number(num1) + Number(num2);
     console.log(result)
     displayResult()
     firstNumResult()
 }
 
 function multiplyFunction(num1, num2) {
-    result = parseInt(num1) * parseInt(num2);
+    result = Number(num1) * Number(num2);
     console.log(result)
     displayResult()
     firstNumResult()
 }
 
 function subtractFunction(num1, num2) {
-    result = parseInt(num1) - parseInt(num2);
+    result = Number(num1) - Number(num2);
     console.log(result)
     displayResult()
     firstNumResult()
 }
 
 function divideFunction(num1, num2) {
-    result = parseInt(num1) / parseInt(num2);
+    result = Number(num1) / Number(num2);
     console.log(result)
     displayResult()
     firstNumResult()
@@ -53,6 +53,7 @@ function clearCalc() {
     firstNum = "";
     secondNum = "";
     operator = "";
+    decimal = "";
     result = "";
     displayScreen.querySelector("div").innerText = 0;
 }
@@ -61,6 +62,7 @@ let firstNum = "";
 let secondNum = "";
 let operator = "";
 let result = "";
+let decimal = "";
 
 for(i of numPadButtons) {
     i.addEventListener('click', function(digit) {
@@ -85,7 +87,6 @@ for(i of numPadButtons) {
 )};
 
 let operatorSelect = document.querySelectorAll(".op-btn");
-
 for(o of operatorSelect) {
     o.addEventListener('click', function(opt) {
         opt.stopPropagation()  
@@ -109,6 +110,17 @@ equalSelect.addEventListener('click', function(e) {
     caculation();
     } else
     console.log("Equals is pressed & it did nothing")
+})
+
+let decimalPoint = document.querySelector(".dot-btn") 
+decimalPoint.addEventListener('click', function(e) {
+    console.log("decimalPoint is pressed")
+    e.stopPropagation()
+    if(secondNum === "" && decimal === "") {
+        decimal = ".";
+        firstNum = firstNum + decimal
+        displayScreen.querySelector("div").innerText = firstNum;
+    } else return
 })
 
 function caculation() {
