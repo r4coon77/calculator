@@ -13,36 +13,41 @@ function firstNumResult() {
 function addFunction(num1, num2) {
     result = parseInt(num1) + parseInt(num2);
     console.log(result)
-    displayScreen.querySelector("div").innerText = result;
+    displayResult()
     firstNumResult()
 }
 
 function multiplyFunction(num1, num2) {
     result = parseInt(num1) * parseInt(num2);
     console.log(result)
-    displayScreen.querySelector("div").innerText = result;
+    displayResult()
     firstNumResult()
 }
 
 function subtractFunction(num1, num2) {
     result = parseInt(num1) - parseInt(num2);
     console.log(result)
-    displayScreen.querySelector("div").innerText = result;
+    displayResult()
     firstNumResult()
 }
 
 function divideFunction(num1, num2) {
     result = parseInt(num1) / parseInt(num2);
     console.log(result)
-    displayScreen.querySelector("div").innerText = result;
+    displayResult()
     firstNumResult()
 }
-
-
 
 let displayScreen = document.getElementById("display-screen");
 let numPadButtons = document.querySelectorAll(".nm-btn");
 let equalButton = document.querySelectorAll(".eq-btn");
+
+function displayResult() {
+    if (Number.isInteger(result)) {
+        displayScreen.querySelector("div").innerText = result;
+    } else
+    displayScreen.querySelector("div").innerText = result.toFixed(3);
+}
 
 function clearCalc() {
     firstNum = "";
