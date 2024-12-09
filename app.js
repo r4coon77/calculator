@@ -38,6 +38,16 @@ function divideFunction(num1, num2) {
     firstNumResult()
 }
 
+function divideFunction(num1, num2) {
+    if(num1 === "0" || num2 === "0") {
+        displayScreen.querySelector("div").innerText = "Dividing by 0 is Not Possible";
+    } else
+    result = Number(num1) / Number(num2);
+    console.log(result)
+    displayResult()
+    firstNumResult()
+}
+
 let displayScreen = document.getElementById("display-screen");
 let numPadButtons = document.querySelectorAll(".nm-btn");
 let equalButton = document.querySelectorAll(".eq-btn");
