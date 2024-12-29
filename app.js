@@ -50,7 +50,6 @@ function divideFunction(num1, num2) {
 
 let displayScreen = document.getElementById("display-screen");
 let numPadButtons = document.querySelectorAll(".nm-btn");
-let equalButton = document.querySelectorAll(".eq-btn");
 
 function displayResult() {
     if (Number.isInteger(result)) {
@@ -112,7 +111,7 @@ for(o of operatorSelect) {
 })
 };
 
-let equalSelect = document.querySelector(".eq-btn")
+let equalSelect = document.querySelector("#btn-eq")
 equalSelect.addEventListener('click', function(e) {
     e.stopPropagation()
     if(secondNum !== "") {
@@ -122,7 +121,7 @@ equalSelect.addEventListener('click', function(e) {
     console.log("Equals is pressed & it did nothing")
 })
 
-let decimalPoint = document.querySelector(".dot-btn") 
+let decimalPoint = document.querySelector("#btn-dot") 
 decimalPoint.addEventListener('click', function(e) {
     console.log("decimalPoint is pressed")
     e.stopPropagation()
@@ -132,6 +131,52 @@ decimalPoint.addEventListener('click', function(e) {
         displayScreen.querySelector("div").innerText = firstNum;
     } else return
 })
+
+let keyinput = "";
+
+window.addEventListener('keydown', function(e) {
+    keyinput = e.key;
+    keydown(keyinput)
+})
+
+function keydown() {
+    switch (keyinput !== "") {
+        case keyinput === "=":
+            document.querySelector("#btn-eq").click();
+            break;
+        case keyinput === "Enter":
+                document.querySelector("#btn-eq").click();
+                break;
+        case keyinput === ".":
+            document.querySelector("#btn-dot").click();
+            break;
+        case keyinput === "+":
+                document.querySelector("#btn-plus").click();
+                break;
+        case keyinput === "*":
+                document.querySelector("#btn-multiply").click();
+                break;
+        case keyinput === "-":
+                document.querySelector("#btn-subtract").click();
+                break;
+        case keyinput === "/":
+                document.querySelector("#btn-divide").click();
+                break;
+        case keyinput === "Backspace":
+                document.querySelector("#delete").click();
+                break;
+        case keyinput === "Escape":
+                document.querySelector("#clear").click();
+                break;
+        default:
+            try {
+            document.querySelector(`#btn-${keyinput}`).click();
+            }
+            catch (e) {
+            return
+            }
+    }
+}
 
 function caculation() {
     switch (secondNum !== "") {
